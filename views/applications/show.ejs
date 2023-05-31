@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<container class="details">
+    <section class="details-left">
+        <label>Company</label>
+        <div><%= application.companyName %></div>
+        <label>Position</label>
+        <div><%= application.position %></div>
+        <label>Salary</label>
+        <div>£<%= application.salary %></div>
+    </section>
+    <section class="details-right">
+        <label>success?</label>
+        <div><%= application.success %></div>
+        <label>Stage of Application</label>
+        <div><%= application.applicationStage %></div>
+        <label>Notes</label>
+        <div><%= application.notes %></div>
+    </section>
+</container>
+<container class="buttons">
+    <!-- <label>Application Submitted At</label> -->
+    <!-- <div><%= application.timeOfApplication %></div> -->
+    <a class="edit-application" href="/edit">Edit Application</a>
+    <a class="add-review" href="/review/new">Add Review</a>
+</container>
+
+<section class="details-reviews-header">User Reviews on <%=application.companyName %></section>
+<section class="details-reviews">
+    <p>reviews go here</p>
+</section>
+
+<%- include('../partials/footer') %>

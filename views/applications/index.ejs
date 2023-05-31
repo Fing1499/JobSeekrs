@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+test index
+<a href="applications/new">New Appliation</a>
+
+<container class="headings">
+    <li>Company</li>
+    <li>Salary</li>
+    <li>Position</li>
+    <li>Application Stage</li>
+    <li>Success?</li>
+</container>
+<% applications.forEach(function(a){ %>
+    <a href="/applications/<%= a._id %>">
+        <ul class="single-application">  
+            <li><%= a.companyName %></li>
+            <li>£<%= a.salary %></li>
+            <li><%= a.position %></li>
+            <li><%= a.applicationStage %></li>
+            <li><%= a.success %></li>
+        </ul>
+    </a>
+<% }) %>
+
+
+<%- include('../partials/footer') %>

@@ -1,8 +1,183 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
 a {
-  color: #00B7FF;
+  color: #ffffff;
 }
+body {
+  background-color: #d9d9d9;
+}
+nav {
+  display: flex;
+  background-color: purple;
+  height: 4.7vmin;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+  color: #ffffff;
+}
+
+/*! DASHBOARD SECTION !*/
+
+.single-application {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 7vmin;
+  margin-left: 3vmin;
+  margin-right: 3vmin;
+  border-radius: 20px;
+  background-color: white;
+  color: rgb(226, 79, 104);
+  box-shadow: 0px 4px 4px rgb(61, 61, 61);
+}
+
+.single-application:hover {
+  transform: scale(1.02);
+  border: 0.5vmin solid purple;
+}
+
+.headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid red;
+  height: 7vmin;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgb(61, 61, 61);
+}
+
+li {
+  text-decoration: none;
+}
+
+/* ! DETAILS SECTION !*/
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .details-left { grid-area: 1 / 1 / 2 / 2; }
+  .details-right { grid-area: 1 / 2 / 2 / 3; }
+
+  .details {
+    margin-top: 3vmin;
+    display: flex;
+    justify-content: center;
+  }
+
+  .details-left > div, .details-right > div {
+    background-color: white;
+    width: 30vmin;
+    height: 6vmin;
+    margin-top: 1vmin;
+    margin-bottom: 2vmin;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgb(51, 51, 51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .details-left > div {
+    margin-right: 30vmin;
+  }
+
+  .buttons {
+    margin-top: 3.5vmin;
+    margin-bottom: 2.5vmin;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+
+  .edit-application, .add-review {
+    background-color: white;
+    color: #c647f2;
+    font-size: 1.7vmin;
+    width: 12vmin;
+    height: 3vmin;
+    border-radius: 2vmin;
+    box-shadow: 0px 3px 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit-application:hover, .add-review:hover {
+    transform: scale3d(1.1);
+    font-size: 1.5vmin;
+    box-shadow: 0px 1px 2px black;
+  }
+
+  .details-reviews-header {
+    background-color: purple;
+    color: white;
+    box-shadow: 0px 4px 4px black;
+    height: 3.5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+  }
+
+  .details-reviews {
+    background-color: pink;
+    height: 100vh;
+    display: flex;
+    margin-top: -2vmin;
+    position: relative;
+    z-index: 1;
+  }
+
+/*! NEW/EDIT PAGES !*/
+
+.form-container {
+  margin-top: 10vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#application-form {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  width: 60vmin;
+  height: 70vmin;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2vmin;
+}
+
+#application-form > label {
+  margin-bottom: 1vmin;
+}
+
+#application-form > select, #application-form > input, #application-form > textarea {
+  width: 30vmin;
+  height: 3vmin;
+  margin-bottom: 2vmin;
+  border-radius: 1vmin;
+  box-shadow: 0px 4px 4px rgb(49, 49, 49);
+  text-indent: 1vmin;
+}
+
+#application-form > textarea {
+  max-width: 50vmin;
+  padding-top: 1vmin;
+}
+
+.submit-button {
+  max-width: 13vmin;
+  border-radius: 3vmin;
+  margin-top: 2vmin;
+}
+

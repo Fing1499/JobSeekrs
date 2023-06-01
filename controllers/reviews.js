@@ -9,16 +9,17 @@ module.exports = {
 
 async function addReview(req, res, next) {
     try {
-        const { id } = req.params;
-        // const { review } = req.body;
-        // const { rating } = req.body;
-        // console.log(rating);
-        // console.log(review)
-        const application = await Application.findOne({ id });
+        const { companyName } = req.params;
+        console.log(companyName);
+        const { review } = req.body;
+        const { rating } = req.body;
+        console.log(rating);
+        console.log(review)
+        const application = await Application.findOne({ companyName });
         console.log(application);
-        application.reviews.push(req.body);
+        application.reviews.push(review, rating);
         await application.save();
-        res.redirect(`applications/${application._id}`, { title: `${application.companyName} Application`, application })
+        res.redirect(`applications/${application._id}`, { title: ` Application`, application })
     } catch (err) {
         console.log(err);
         res.render('applications/show', { errorMsg: err.message });

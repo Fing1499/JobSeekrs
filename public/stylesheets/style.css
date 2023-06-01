@@ -175,6 +175,10 @@ li {
   padding-top: 1vmin;
 }
 
+.success-selection {
+  height: 5vmin;
+}
+
 .submit-button {
   max-width: 13vmin;
   border-radius: 3vmin;

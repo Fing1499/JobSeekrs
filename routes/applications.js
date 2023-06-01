@@ -12,6 +12,10 @@ router.get('/:id', applicationCtrl.show);
 
 router.post('/', applicationCtrl.create);
 
+router.get('/:id/edit', applicationCtrl.showEdit);
+
+router.put('/:id', applicationCtrl.updateApplication);
+
 
 
 

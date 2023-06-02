@@ -27,7 +27,13 @@
 
 <section class="details-reviews-header">User Reviews on <%=application.companyName %></section>
 <section class="details-reviews">
-    <p>reviews go here</p>
+
+    <% application.reviews.forEach(function(r) { %>
+        <ul>
+            <li><%= r.review %></li>
+            <li><%= r.rating %> </li>
+        </ul>
+    <% }) %>
 </section>
 
 <%- include('../partials/footer') %>

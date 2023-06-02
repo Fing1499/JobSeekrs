@@ -185,3 +185,34 @@ li {
   margin-top: 2vmin;
 }
 
+/* ! REVIEWS SECTION */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vmin;
+}
+
+.search {
+  width: 15vmin;
+  height: 2.5vmin;
+  border-radius: 2vmin;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 7vmin;
+  margin-left: 3vmin;
+  margin-right: 3vmin;
+  border-radius: 20px;
+  background-color: white;
+  color: rgb(226, 79, 104);
+  box-shadow: 0px 4px 4px rgb(61, 61, 61);
+}
+
+.see-reviews {
+  color: blue;
+}

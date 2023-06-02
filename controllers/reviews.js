@@ -3,7 +3,23 @@ const Application = require('../models/application');
 module.exports = {
     index,
     addReview,
-    showNewReviewPage
+    showNewReviewPage,
+    showCompanyReviews
+}
+
+async function showCompanyReviews(req, res, next) {
+    try {
+        const companyName = req.params.companyName;
+        const company = await Application.find({ companyName: companyName });
+        console.log(req.params);
+        console.log(company)
+        console.log(companyNames);
+        res.render('reviews/show', { title: `${company.companyName} Reviews`, company });
+    } catch (err) {
+        console.log(err);
+        res.send('test')// { errorMsg: err.message });
+        next();
+    }
 }
 
 
@@ -41,6 +57,14 @@ async function showNewReviewPage(req, res, next) {
     }
 }
 
-function index(req, res) {
-    res.render('reviews/index', { title: 'Reviews' });
+ async function index(req, res, next) {
+    try {
+        const application = await Application.find({});
+        res.render('reviews/index', { title: 'Reviews', application });
+    } catch (err) {
+        console.log(err);
+        res.send('test')// { errorMsg: err.message });
+        next();
+    }
+
 }

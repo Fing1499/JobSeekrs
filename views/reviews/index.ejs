@@ -1,6 +1,23 @@
 <%- include('../partials/header') %>
 
+<!-- TODO: if else for no reviews NaN -->
+<container class="btn-container">
+    <button class="search">search?</button>
+</container>
+<% application.forEach(function(a) { %>
+    <a href="reviews/<%= a.companyName %>">
+        <ul class="review-list">
+            <li><%= a.companyName %></li>
+            <% let totalRating = 0 %>
+            <% let total = a.reviews.length %>
+            <% a.reviews.forEach(function(r) { %>
+                <% totalRating += r.rating %>
+            <% }) %>
+            <li><%= Math.floor((totalRating / total)) %></li>
+            <!-- <a class="see-reviews "href="reviews/<%= a.companyName %>">See Reviews</a> -->
+        </ul>
+    </a>
+<% }) %>
 
-<h1>reviews index test</h1>
 
 <%- include('../partials/footer') %>

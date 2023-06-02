@@ -27,13 +27,15 @@
 
 <section class="details-reviews-header">User Reviews on <%=application.companyName %></section>
 <section class="details-reviews">
-
-    <% application.reviews.forEach(function(r) { %>
-        <ul>
+<!-- ! only showing first review -->
+<% application.reviews.forEach(function(r) { %>
+    <container class="single-review-container">
+        <ul class="application-single-review">
             <li><%= r.review %></li>
             <li><%= r.rating %> </li>
         </ul>
-    <% }) %>
+    </container>
+<% }) %>
 </section>
 
 <%- include('../partials/footer') %>

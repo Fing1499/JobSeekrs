@@ -1,4 +1,13 @@
 <%- include('../partials/header') %>
 
+<% console.log(company) %>
+<% company.forEach(function(c) { %>
+    <% c.reviews.forEach(function (r) { %>
+        <ul class="single-review">
+            <li><%= r.review %></li>
+            <li><%= r.rating %></li>
+        </ul>
+    <% }) %>
+<% }) %>
 
 <%- include('../partials/footer') %>

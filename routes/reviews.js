@@ -9,6 +9,6 @@ router.get('/:id/new', reviewsCtrl.showNewReviewPage);
 
 router.post('/:id', reviewsCtrl.addReview);
 
-router.get('/:comapanyName', reviewsCtrl.showCompanyReviews);
+router.get('/:companyName', reviewsCtrl.showCompanyReviews);
 
 module.exports = router;

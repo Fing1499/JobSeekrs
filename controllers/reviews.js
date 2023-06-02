@@ -9,12 +9,14 @@ module.exports = {
 
 async function showCompanyReviews(req, res, next) {
     try {
-        const companyName = req.params.companyName;
+        const { companyName } = req.params;
+        //! change to find one is problem arises with this 
         const company = await Application.find({ companyName: companyName });
-        console.log(req.params);
-        console.log(company)
-        console.log(companyNames);
-        res.render('reviews/show', { title: `${company.companyName} Reviews`, company });
+        // console.log(req.params);
+        // console.log(`COMPANY: ${company}`)
+        // console.log(`COMPANYNAME: ${companyName}`);
+        // console.log(company.companyName);
+        res.render('reviews/show', { title: `${companyName} Reviews`, company });
     } catch (err) {
         console.log(err);
         res.send('test')// { errorMsg: err.message });

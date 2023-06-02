@@ -22,7 +22,7 @@
     <!-- <label>Application Submitted At</label> -->
     <!-- <div><%= application.timeOfApplication %></div> -->
     <a class="edit-application" href="/applications/<%= application._id %>/edit">Edit Application</a>
-    <a class="add-review" href="/reviews/<%= application.companyName %>/new">Add Review</a>
+    <a class="add-review" href="/reviews/<%= application._id%>/new">Add Review</a>
 </container>
 
 <section class="details-reviews-header">User Reviews on <%=application.companyName %></section>

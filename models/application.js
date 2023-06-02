@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    companyName: { type: String, required: true },
-    review: { type: String, required: true },
-    rating: { type: Number, required: true, enum: [1, 2, 3, 4, 5] }
+    // companyName: { type: String, required: true },
+    review: { type: String, },
+    rating: { type: Number, enum: [1, 2, 3, 4, 5] }
 });
 
 const applicationSchema = new Schema({

@@ -1,0 +1,2 @@
+<!-- <%- title === 'Dashboard' ? 'class="active"' : '' %>
+<%- title === 'Reviews' ? 'class="active"' : '' %> -->

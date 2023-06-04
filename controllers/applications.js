@@ -7,7 +7,22 @@ module.exports = {
     create: createApplication,
     show,
     showEdit,
-    updateApplication
+    updateApplication,
+    delete: deleteApplication
+}
+
+async function deleteApplication(req, res, next) {
+    try {
+        console.log('starting delete function');
+        const { id } = req.params;
+        const application = await Application.findById(id);
+        await application.deleteOne();
+        res.redirect('/applications');
+    } catch (err) {
+        console.log(err);
+        res.render('applications/show', { errorMsg: err.message });
+        next();
+    }
 }
 
 async function updateApplication(req, res, next) {

@@ -14,9 +14,8 @@ router.post('/', applicationCtrl.create);
 
 router.get('/:id/edit', applicationCtrl.showEdit);
 
+router.delete('/:id', applicationCtrl.delete);
+
 router.put('/:id', applicationCtrl.updateApplication);
-
-
-
 
 module.exports = router;

@@ -4,20 +4,53 @@
 <container class="btn-container">
     <input type="text" class="search" placeholder="Search..">
 </container>
-<% application.forEach(function(a) { %>
-    <a href="reviews/<%= a.companyName %>">
+<% const uniqueCompanies = {};
+    application.forEach(function(a) {
+        const companyName = a.companyName;
+        if (uniqueCompanies.hasOwnProperty(companyName) === false) {
+            uniqueCompanies[companyName] = {
+            totalRating: 0,
+            totalReviews: a.reviews.length,
+        };
+    };
+        a.reviews.forEach(function(r) {
+            uniqueCompanies[companyName].totalRating += r.rating; 
+        });
+    });
+    for (const companyName in uniqueCompanies) {
+        if (uniqueCompanies.hasOwnProperty(companyName) === true) {
+            const companyRandR = uniqueCompanies[companyName]; %>
+    <a href="reviews/<%= companyName %>">
         <ul class="review-list">
-            <li><%= a.companyName %></li>
-            <% let totalRating = 0 %>
-            <% let total = a.reviews.length %>
-            <% a.reviews.forEach(function(r) { %>
-                <% totalRating += r.rating %>
-            <% }) %>
-            <li><%= Math.floor((totalRating / total)) %></li>
-            <!-- <a class="see-reviews "href="reviews/<%= a.companyName %>">See Reviews</a> -->
+            <li><%= companyName %></li>
+            <li class="stars">
+                <p class="star1">★</p>
+                <p class="star2">★</p>
+                <p class="star3">★</p>
+                <p class="star4">★</p>
+                <p class="star5">★</p>
+            </li>
+            <li><%= companyRandR.totalReviews %> Reviews</li>
+            <li class="hiddenRating"><%= starRating = Math.floor(companyRandR.totalRating / companyRandR.totalReviews) %></li>
         </ul>
     </a>
-<% }) %>
+<% };
+    }; %>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const stars = document.querySelectorAll('.stars > p');
+        const starRatings = Array.from(document.querySelectorAll('.hiddenRating'));
+        starRatings.forEach(function(starRating, idx) {
+            const starRatingContent = starRating.textContent;
+            const starRatingAsNum = parseInt(starRatingContent);
+            for (let s = 0; s < starRatingAsNum; s++) {
+                stars[idx * 5 + s].style.color = 'yellow';
+            }
+        });
+    });
+</script>
+
 
 
 <%- include('../partials/footer') %>

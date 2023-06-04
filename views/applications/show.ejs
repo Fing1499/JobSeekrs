@@ -10,8 +10,8 @@
         <div>£<%= application.salary %></div>
     </section>
     <section class="details-right">
-        <label>success?</label>
-        <div><%= application.success %></div>
+        <label>Outcome</label>
+        <div class="outcome"><%= application.success %></div>
         <label>Stage of Application</label>
         <div><%= application.applicationStage %></div>
         <label>Notes</label>
@@ -22,6 +22,9 @@
     <!-- <label>Application Submitted At</label> -->
     <!-- <div><%= application.timeOfApplication %></div> -->
     <a class="edit-application" href="/applications/<%= application._id %>/edit">Edit Application</a>
+    <form class="delete-application" action="/applications/<%= application._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="delete-button">Delete</button>
+    </form>
     <a class="add-review" href="/reviews/<%= application._id%>/new">Add Review</a>
 </container>
 
@@ -32,10 +35,40 @@
     <container class="single-review-container">
         <ul class="application-single-review">
             <li><%= r.review %></li>
-            <li><%= r.rating %> </li>
+            <li class="hiddenRating"><%= r.rating %> </li>
+            <li class="stars">
+                <p class="star1">★</p>
+                <p class="star2">★</p>
+                <p class="star3">★</p>
+                <p class="star4">★</p>
+                <p class="star5">★</p>
+            </li>
         </ul>
     </container>
 <% }) %>
 </section>
+
+<script>
+    addEventListener('DOMContentLoaded', function() {
+        const outcome = document.querySelector('.outcome');
+        if (outcome.textContent === 'Waiting') {
+            outcome.style.backgroundColor = 'yellow';
+        } else if (outcome.textContent === 'Rejected') {
+            outcome.style.backgroundColor = 'red';
+        } else if (outcome.textContent === 'Success') {
+            outcome.style.backgroundColor = 'green';
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const stars = document.querySelectorAll('.stars > p');
+        const starRatings = Array.from(document.querySelectorAll('.hiddenRating'));
+        starRatings.forEach(function(starRating, idx) {
+            const starRatingContent = starRating.textContent;
+            const starRatingAsNum = parseInt(starRatingContent);            for (let s = 0; s < starRatingAsNum; s++) {
+                stars[idx * 5 + s].style.color = 'yellow';
+            }
+        });
+    });
+</script>
 
 <%- include('../partials/footer') %>

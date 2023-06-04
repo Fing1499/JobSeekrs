@@ -1,34 +1,85 @@
-
+* {
+  list-style-type: none;
+}
 a {
   color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 }
 body {
   background-color: #d9d9d9;
+  margin: 0;
+  list-style-type: none;
 }
 nav {
   display: flex;
-  background-color: purple;
+  background-color: #C473E0;
   height: 4.7vmin;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
   width: 100%;
   color: #ffffff;
+  box-shadow: 0px 4px 4px gray;
+  position: relative;
+  z-index: 3;
 }
 
 /*! DASHBOARD SECTION !*/
 
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.application-atag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.appliction-containers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  background-color: #C473E0;
+  width: 10vmin;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+.add-application {
+  background-color: blue;
+  display: flex;
+  width: 4vmin;
+  height: 4vmin;
+  font-size: 4.5vmin;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: .22vmin solid white;
+}
+
 .single-application {
+  font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   height: 7vmin;
+  width: 80vw;
   margin-left: 3vmin;
   margin-right: 3vmin;
   border-radius: 20px;
   background-color: white;
-  color: rgb(226, 79, 104);
+  color: #A13AD1;
   box-shadow: 0px 4px 4px rgb(61, 61, 61);
 }
 
@@ -42,9 +93,12 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid red;
   height: 7vmin;
-  border-radius: 20px;
+  width: 101.2%;
+  /* margin-left: 3vmin;
+  margin-right: 3vmin; */
+  /* margin-top: 1vmin; */
+  /* border-radius: 20px; */
   background-color: white;
   box-shadow: 0px 4px 4px rgb(61, 61, 61);
 }
@@ -74,6 +128,7 @@ li {
 
   .details-left > div, .details-right > div {
     background-color: white;
+    font-family: 'Montserrat', sans-serif;
     width: 30vmin;
     height: 6vmin;
     margin-top: 1vmin;
@@ -88,6 +143,14 @@ li {
     margin-right: 30vmin;
   }
 
+  .details-left > label, .details-right > label {
+    margin-left: 1vmin;
+    color: #A13AD1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+  }
+
   .buttons {
     margin-top: 3.5vmin;
     margin-bottom: 2.5vmin;
@@ -97,11 +160,25 @@ li {
   }
 
   .edit-application, .add-review {
+    background-color: #ffffff;
+    color: #c647f2;
+    font-size: 1.7vmin;
+    width: 14vmin;
+    height: 3vmin;
+    border-radius: 2vmin;
+    box-shadow: inset 0px 1px 2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .delete-button {
     background-color: white;
     color: #c647f2;
     font-size: 1.7vmin;
     width: 12vmin;
     height: 3vmin;
+    border: 1px solid white;
     border-radius: 2vmin;
     box-shadow: 0px 3px 5px black;
     display: flex;
@@ -109,14 +186,15 @@ li {
     align-items: center;
   }
 
-  .edit-application:hover, .add-review:hover {
+  .edit-application:hover, .add-review:hover, .delete-button:hover {
     transform: scale3d(1.1);
     font-size: 1.5vmin;
     box-shadow: 0px 1px 2px black;
   }
 
   .details-reviews-header {
-    background-color: purple;
+    font-family: 'Roboto', sans-serif;
+    background-color: #B22ED2;
     color: white;
     box-shadow: 0px 4px 4px black;
     height: 3.5vmin;
@@ -128,9 +206,10 @@ li {
   }
 
   .details-reviews {
-    background-color: pink;
+    background-color: #D77CF8;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     margin-top: -2vmin;
     position: relative;
     z-index: 1;
@@ -139,10 +218,13 @@ li {
   .single-review-container {
     display: flex;
     justify-content: center;
-    margin-top: 2vmin;
+    flex-direction: row;
+    margin-top: 4vmin;
+    margin-bottom: -3.5vmin;
     width: 100%;
   }
   .application-single-review {
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -153,7 +235,7 @@ li {
     margin-right: 3vmin;
     border-radius: 20px;
     background-color: white;
-    color: rgb(226, 79, 104);
+    color: #A13AD1;
     box-shadow: 0px 4px 4px rgb(61, 61, 61);
   }
 
@@ -164,7 +246,6 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 #application-form {
@@ -176,10 +257,13 @@ li {
   justify-content: center;
   align-items: center;
   border-radius: 2vmin;
+  box-shadow: 2px 5px 10px black;
 }
 
 #application-form > label {
   margin-bottom: 1vmin;
+  font-family: 'Lato';
+  color: white;
 }
 
 #application-form > select, #application-form > input, #application-form > textarea {
@@ -187,12 +271,14 @@ li {
   height: 3vmin;
   margin-bottom: 2vmin;
   border-radius: 1vmin;
+  border: none;
   box-shadow: 0px 4px 4px rgb(49, 49, 49);
   text-indent: 1vmin;
 }
 
 #application-form > textarea {
   max-width: 50vmin;
+  max-height: 10vmin;
   padding-top: 1vmin;
 }
 
@@ -201,9 +287,16 @@ li {
 }
 
 .submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 13vmin;
   border-radius: 3vmin;
   margin-top: 2vmin;
+  background-color: blue;
+  color: white;
+  border: none;
+  text-align: center;
 }
 
 /* ! REVIEWS SECTION */
@@ -237,6 +330,43 @@ li {
 
 .see-reviews {
   color: blue;
+}
+
+.stars{
+  display: flex;
+
+}
+
+.stars > p {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: rgb(138, 135, 135);
+}
+
+.hiddenRating {
+  display: none;
+}
+
+/* !  ADD REVIEW PAGE */
+
+.review-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-review-form {
+  display: flex;
+  flex-direction: column;
+  width: 40vmin;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-textbox {
+  width: 50vmin;
+  height: 10vmin;
 }
 
 /* ! REVIEWS/SHOW */

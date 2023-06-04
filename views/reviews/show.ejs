@@ -5,9 +5,39 @@
     <% c.reviews.forEach(function (r) { %>
         <ul class="single-review">
             <li><%= r.review %></li>
-            <li><%= r.rating %></li>
+            <li class="stars">
+                <p class="star1">★</p>
+                <p class="star2">★</p>
+                <p class="star3">★</p>
+                <p class="star4">★</p>
+                <p class="star5">★</p>
+            </li>
+            <li class="hiddenRating"><%= r.rating %></li>
         </ul>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        //selctes relevant dom content
+        const stars = document.querySelectorAll('.stars > p');
+        // returns node list so need to use array.from to swap to array
+        const starRatings = Array.from(document.querySelectorAll('.hiddenRating'));
+        // iterates over each hidden rating which contains the rating
+        starRatings.forEach(function(starRating, idx) {
+            //swaps content to integer
+            const starRatingContent = starRating.textContent;
+            const starRatingAsNum = parseInt(starRatingContent);
+            //each rating has 5 stars so x by 5 to get starting star, then + s to find the end star and change them to yellow
+            for (let s = 0; s < starRatingAsNum; s++) {
+                stars[idx * 5 + s].style.color = 'yellow';
+            }
+        });
+    });
+</script>
     <% }) %>
 <% }) %>
 
+
+
+
 <%- include('../partials/footer') %>
+
+

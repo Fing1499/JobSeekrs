@@ -7,6 +7,7 @@
 <% const uniqueCompanies = {};
     application.forEach(function(a) {
         const companyName = a.companyName;
+        console.log(companyName);
         if (uniqueCompanies.hasOwnProperty(companyName) === false) {
             uniqueCompanies[companyName] = {
             totalRating: 0,
@@ -17,9 +18,11 @@
             uniqueCompanies[companyName].totalRating += r.rating; 
         });
     });
+    console.log(uniqueCompanies);
     for (const companyName in uniqueCompanies) {
         if (uniqueCompanies.hasOwnProperty(companyName) === true) {
-            const companyRandR = uniqueCompanies[companyName]; %>
+            const companyRandR = uniqueCompanies[companyName];
+            console.log(companyRandR); %>
     <a href="reviews/<%= companyName %>">
         <ul class="review-list">
             <li><%= companyName %></li>
@@ -30,7 +33,7 @@
                 <p class="star4">★</p>
                 <p class="star5">★</p>
             </li>
-            <li><%= companyRandR.totalReviews %> Reviews</li>
+            <li class="total-reviews"><%= companyRandR.totalReviews %> Reviews</li>
             <li class="hiddenRating"><%= starRating = Math.floor(companyRandR.totalRating / companyRandR.totalReviews) %></li>
         </ul>
     </a>
@@ -44,8 +47,8 @@
         starRatings.forEach(function(starRating, idx) {
             const starRatingContent = starRating.textContent;
             const starRatingAsNum = parseInt(starRatingContent);
-            for (let s = 0; s < starRatingAsNum; s++) {
-                stars[idx * 5 + s].style.color = 'yellow';
+             for (let s = 0; s < starRatingAsNum; s++) {
+                stars[(idx * 5) + s].style.color = 'yellow';
             }
         });
     });

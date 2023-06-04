@@ -52,11 +52,12 @@
     addEventListener('DOMContentLoaded', function() {
         const outcome = document.querySelector('.outcome');
         if (outcome.textContent === 'Waiting') {
-            outcome.style.backgroundColor = 'yellow';
+            outcome.style.border = '0.3vmin solid yellow';
+            // outcome.style.backgroundColor = 'yellow';
         } else if (outcome.textContent === 'Rejected') {
-            outcome.style.backgroundColor = 'red';
+            // outcome.style.backgroundColor = 'red';
         } else if (outcome.textContent === 'Success') {
-            outcome.style.backgroundColor = 'green';
+            // outcome.style.backgroundColor = 'green';
         }
     });
     document.addEventListener("DOMContentLoaded", function() {

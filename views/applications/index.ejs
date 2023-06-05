@@ -17,17 +17,20 @@
     <li>Outcome</li>
 </container>
 <container class="application-containers">
-<% applications.forEach(function(a){ %>
-    <a href="/applications/<%= a._id %>" class="application-atag">
-        <ul class="single-application">  
-            <li><%= a.companyName %></li>
-            <li>£<%= a.salary %></li>
-            <li><%= a.position %></li>
-            <li><%= a.applicationStage %></li>
-            <li><%= a.success %></li>
-        </ul>
-    </a>
-<% }) %>
+    <% applications.forEach(function(a){
+        if (JSON.stringify(user._id) === JSON.stringify(a.user)) { %>
+            <a href="/applications/<%= a._id %>" class="application-atag">
+                <ul class="single-application">  
+                    <li><%= a.companyName %></li>
+                    <li>£<%= a.salary %></li>
+                    <li><%= a.position %></li>
+                    <li><%= a.applicationStage %></li>
+                    <li><%= a.success %></li>
+                </ul>
+            </a>
+<%    
+        }
+    }) %>
 </container>
 </container>
 

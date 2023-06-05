@@ -78,7 +78,7 @@ function newApplication(res, res) {
 
 async function createApplication(req, res, next) {
     try {
-        const body = req.body;
+        req.body.user = req.user.id;
         const application = await Application.create(req.body);
         res.redirect('/applications');
         console.log('added to database');

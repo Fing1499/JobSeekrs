@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+const userSchema = require('./user');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    // companyName: { type: String, required: true },
     review: { type: String, },
     rating: { type: Number, enum: [1, 2, 3, 4, 5] }
 });
 
 const applicationSchema = new Schema({
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     companyName: { type: String, required: true },
     salary: { type: Number },
     position: { type: String, required: true },
@@ -18,6 +19,7 @@ const applicationSchema = new Schema({
     reviews: [reviewSchema]
 });
 
-// applicationSchema.add({ reviews: [reviewSchema] });
+
+
 
 module.exports = mongoose.model('Application', applicationSchema);

@@ -23,3 +23,18 @@
             stars.style.color = 'yellow';
         };
     </script>
+
+    .home-main {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 3vmin;
+grid-row-gap: 3vmin;
+height: 82vh;
+margin-right: 2vmin;
+margin-left: 2vmin;
+}
+
+.welcome { grid-area: 1 / 1 / 2 / 2; }
+.login { grid-area: 2 / 1 / 3 / 2; }
+.valueprop { grid-area: 1 / 2 / 3 / 3; }

@@ -1,9 +1,12 @@
 <%- include('../partials/header') %>
 
 <!-- TODO: if else for no reviews NaN -->
-<container class="btn-container">
-    <input type="text" class="search" placeholder="Search..">
-</container>
+<container class="reviews-backdrop">
+    <section class="btn-container">
+        <h3 class="review-page-header">USER REVIEWS</h3>
+        <input type="text" class="search" placeholder="Search..">
+    </section>
+    <section class="all-revs">
 <% const uniqueCompanies = {};
     application.forEach(function(a) {
         const companyName = a.companyName;
@@ -37,8 +40,11 @@
             <li class="hiddenRating"><%= starRating = Math.floor(companyRandR.totalRating / companyRandR.totalReviews) %></li>
         </ul>
     </a>
+
 <% };
     }; %>
+</section>
+</container>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {

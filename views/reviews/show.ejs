@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
-
+<container class="show-reviews-container">
+    <section class="show-revs-section">
 <% console.log(company) %>
 <% company.forEach(function(c) { %>
     <% c.reviews.forEach(function (r) { %>
@@ -34,6 +35,8 @@
 </script>
     <% }) %>
 <% }) %>
+</section>
+</container>
 
 
 

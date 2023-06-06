@@ -7,20 +7,21 @@ a {
   text-decoration: none;
 }
 body {
-  background-color: #d9d9d9;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 92%, rgba(255,0,249,1) 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
   margin: 0;
   list-style-type: none;
 }
 .normal-header {
   display: flex;
-  background-color: #C473E0;
+  background-color: rgba(0, 0, 0, 0);
   height: 4.7vmin;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
   width: 100%;
   color: #ffffff;
-  box-shadow: 0px 4px 4px gray;
   position: relative;
   z-index: 3;
 }
@@ -51,12 +52,13 @@ body {
     font-size: 15vmin;
     margin-left: 5vw;
     width: 90vw;
+    user-select: none;
   }
   .welcome-header {
     height: 10vh;
     margin-top: 12vh;
   }
-
+/*! ADD REFLECTION !*/
   .info {
     display: flex;
     font-family: 'Montserrat', sans-serif;
@@ -67,6 +69,7 @@ body {
     width: 30vw;
     height: 20vh;
     margin-top: -7vh;
+    user-select: none;
   }
 
   .info > p {
@@ -82,6 +85,7 @@ body {
   height: 40vh;
   margin-left: 10vw;
   margin-top: -25vh;
+  
 }
 .login > section {
   display: flex;
@@ -93,6 +97,7 @@ body {
   height: 100%;
   overflow: auto;
   flex-direction: row;
+  overflow: hidden;
 }
 .login > section > a {
   width: 10vmin;
@@ -124,43 +129,142 @@ body {
 /*! DASHBOARD SECTION !*/
 
 .dashboard-container {
+  display: grid;
+  grid-template-columns: 6fr 2fr;
+  grid-template-rows: 1fr 4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #42047e;
+  height: 90vh;
+  width: 95vw;
+  margin-top: 2.5vh;
+  margin-left: 2.5vw;
+  border-radius: 3vmin;
+  }
+  
+  .appliction-containers { grid-area: 1 / 1 / 3 / 2; }
+  .add-section { grid-area: 1 / 2 / 2 / 3; }
+  .counter-section { grid-area: 2 / 2 / 3 / 3; }
+
+  .dash-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4vmin;
+    height: 5vh;
+    text-align: center;
+    margin-top: 0.7vh;
+    color: white;
+  }
+
+
+.application-containers {
+  /* border: 1px solid red; */
+  margin-top: -12.5vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-height: 82vh;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  background: #42047e;
+  width: 0.3vw;
+}
+::-webkit-scrollbar-thumb {
+  background: #B22ED2;
+  -webkit-border-radius: 1ex;
 }
 
 .application-atag {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* border: 1px solid red; */
 }
 
-.appliction-containers {
+.add-section {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  /* border: 1px solid red; */
+  height: 10vh;
+  width: 20vw;
+  margin-top: 5vh;
+}
+.add-application {
+  background-color: #42047e;
+  display: flex;
+  font-size: 4.5vmin;
+  height: 10vh;
+  width: 20vw;
+  border-radius: 2vmin;
+  justify-content: center;
+  align-items: center;
+  border: .22vmin solid #07f49e;
+}
+
+.add-application:hover {
+  animation: fill 0.5s ease-in forwards;
+}
+
+@keyframes fill {
+  0% {
+      background-color: #42047e 
+  } 10% {
+      background: linear-gradient(0deg, #07f49e 10%, #42047e 20%, #42047e 30%, #42047e 40%, #42047e 50%, #42047e 60%, #42047e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 20% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #42047e 30%, #42047e 40%, #42047e 50%, #42047e 60%, #42047e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 30% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #42047e 40%, #42047e 50%, #42047e 60%, #42047e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 40% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #42047e 50%, #42047e 60%, #42047e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 50% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #07f49e 50%, #42047e 60%, #42047e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 60% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #07f49e 50%, #07f49e 60%, #42047e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 70% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #07f49e 50%, #07f49e 60%, #07f49e 70%, #42047e 80%, #42047e 90%, #42047e 100%);
+  } 80% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #07f49e 50%, #07f49e 60%, #07f49e 70%, #07f49e 80%, #42047e 90%, #42047e 100%);
+  } 90% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #07f49e 50%, #07f49e 60%, #07f49e 70%, #07f49e 80%, #07f49e 90%, #42047e 100%);
+  } 100% {
+      background: linear-gradient(0deg, #07f49e 10%, #07f49e 20%, #07f49e 30%, #07f49e 40%, #07f49e 50%, #07f49e 60%, #07f49e 70%, #07f49e 80%, #07f49e 90%, #07f49e 100%);
+  }
+}
+
+.counter-section {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20vw;
+  margin-top: -4vh;
+}
+
+.single-counter {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-color: #42047e;
+  border: 0.35vmin solid #B22ED2;
+  width: 20vw;
+  height: 27vh;
+  border-radius: 2vmin;;
 }
 
-.sidebar {
-  background-color: #C473E0;
-  width: 10vmin;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-content: space-around;
+.single-counter > h5 {
+  font-size: 3vmin;
+  margin-top: 3vh;
 }
 
-.add-application {
-  background-color: blue;
-  display: flex;
-  width: 4vmin;
-  height: 4vmin;
-  font-size: 4.5vmin;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: .22vmin solid white;
+.single-counter > p {
+  font-size: 5vmin;
 }
 
 .single-application {
@@ -169,14 +273,16 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 7vmin;
-  width: 80vw;
+  min-height: 7vmin;
+  width: 60vw;
   margin-left: 3vmin;
   margin-right: 3vmin;
   border-radius: 20px;
-  background-color: white;
-  color: #A13AD1;
+  background-color: #42047E;
+  border: 0.4vmin solid #B22ED2;
+  color: white;
   box-shadow: 0px 4px 4px rgb(61, 61, 61);
+  /* border: 1px solid red; */
 }
 
 .single-application:hover {
@@ -184,20 +290,7 @@ body {
   border: 0.5vmin solid purple;
 }
 
-.headings {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  height: 7vmin;
-  width: 101.2%;
-  /* margin-left: 3vmin;
-  margin-right: 3vmin; */
-  /* margin-top: 1vmin; */
-  /* border-radius: 20px; */
-  background-color: white;
-  box-shadow: 0px 4px 4px rgb(61, 61, 61);
-}
+
 
 li {
   text-decoration: none;
@@ -208,40 +301,52 @@ li {
 .details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: 5fr 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  background-color: #42047E;
+  width: 90vw;
+  margin-left: 5vw;
+  height: 50vh;
+  margin-bottom: 3vh;
+  margin-top: 4vh;
+  border-radius: 2vmin;
   }
   
   .details-left { grid-area: 1 / 1 / 2 / 2; }
   .details-right { grid-area: 1 / 2 / 2 / 3; }
+  .buttons { grid-area: 2 / 1 / 3 / 3; }
 
-  .details {
+  .details-2 {
     margin-top: 3vmin;
     display: flex;
+    justify-self: center;
     justify-content: center;
+    align-items: center;
+    width: 90vw;
   }
 
   .details-left > div, .details-right > div {
-    background-color: white;
+    background-color: #42047E;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     width: 30vmin;
     height: 6vmin;
     margin-top: 1vmin;
     margin-bottom: 2vmin;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px rgb(51, 51, 51);
+    border: 0.5vmin solid #B22ED2;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .details-left > div {
-    margin-right: 30vmin;
+    margin-right: 18vw;
   }
 
   .details-left > label, .details-right > label {
     margin-left: 1vmin;
-    color: #A13AD1;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 
@@ -256,36 +361,37 @@ li {
   }
 
   .edit-application, .add-review {
-    background-color: #ffffff;
-    color: #c647f2;
+    background-color: #42047E;
+    color: white;
     font-size: 1.7vmin;
     width: 14vmin;
-    height: 3vmin;
-    border-radius: 2vmin;
-    box-shadow: inset 0px 1px 2px black;
+    height: 3.4vh;
+    border-radius: 1vmin;
+    border: 1px solid #07f49e;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .delete-button {
-    background-color: white;
-    color: #c647f2;
+    background-color: #42047E;
+    color: red;
     font-size: 1.7vmin;
-    width: 12vmin;
-    height: 3vmin;
-    border: 1px solid white;
-    border-radius: 2vmin;
-    box-shadow: 0px 3px 5px black;
+    width: 14vmin;
+    height: 3.4vmin;
+    border: 1px solid red;
+    border-radius: 1vmin;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .edit-application:hover, .add-review:hover, .delete-button:hover {
-    transform: scale3d(1.1);
-    font-size: 1.5vmin;
-    box-shadow: 0px 1px 2px black;
+  .delete-button:hover {
+    box-shadow: 0 0 2vmin red;
+  }
+
+  .edit-application:hover, .add-review:hover {
+    animation: fill 0.5s ease-in-out forwards;
   }
 
   .details-reviews-header {
@@ -302,7 +408,7 @@ li {
   }
 
   .details-reviews {
-    background-color: #D77CF8;
+    background-color: #8B5191;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -330,9 +436,10 @@ li {
     margin-left: 3vmin;
     margin-right: 3vmin;
     border-radius: 20px;
-    background-color: white;
-    color: #A13AD1;
-    box-shadow: 0px 4px 4px rgb(61, 61, 61);
+    background-color: #8B5191;
+    border: 0.4vmin solid #07f49e;
+    color: white;
+    box-shadow: 0px 5px 4px rgb(0, 0, 0);
   }
 
 /*! NEW/EDIT PAGES !*/
@@ -345,7 +452,7 @@ li {
 }
 
 #application-form {
-  background-color: grey;
+  background-color: #42047E;
   display: flex;
   flex-direction: column;
   width: 60vmin;
@@ -389,9 +496,9 @@ li {
   max-width: 13vmin;
   border-radius: 3vmin;
   margin-top: 2vmin;
-  background-color: blue;
+  background-color: #42047E;
   color: white;
-  border: none;
+  border: 1vmin solid #07f49e;
   text-align: center;
 }
 
@@ -431,6 +538,7 @@ li {
 
 .stars {
   display: flex;
+  font-size: 2vmin;
 }
 
 .total-reviews {

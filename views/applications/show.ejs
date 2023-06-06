@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
 <container class="details">
+    <container class="details-2">
     <section class="details-left">
         <label>Company</label>
         <div><%= application.companyName %></div>
@@ -18,19 +19,19 @@
         <div><%= application.notes %></div>
     </section>
 </container>
-<container class="buttons">
-    <!-- <label>Application Submitted At</label> -->
-    <!-- <div><%= application.timeOfApplication %></div> -->
-    <a class="edit-application" href="/applications/<%= application._id %>/edit">Edit Application</a>
-    <form class="delete-application" action="/applications/<%= application._id %>?_method=DELETE" method="POST">
-        <button type="submit" class="delete-button">Delete</button>
-    </form>
-    <a class="add-review" href="/reviews/<%= application._id%>/new">Add Review</a>
+    <section class="buttons">
+        <a class="edit-application" href="/applications/<%= application._id %>/edit">EDIT</a>
+        <form class="delete-application" action="/applications/<%= application._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="delete-button">DELETE</button>
+        </form>
+        <a class="add-review" href="/reviews/<%= application._id%>/new">REVIEW</a>
+    </section>
 </container>
 
-<section class="details-reviews-header">User Reviews on <%=application.companyName %></section>
+
+
+<section class="details-reviews-header">Your Reviews of <%=application.companyName %></section>
 <section class="details-reviews">
-<!-- ! only showing first review -->
 <% application.reviews.forEach(function(r) { %>
     <container class="single-review-container">
         <ul class="application-single-review">
@@ -52,12 +53,11 @@
     addEventListener('DOMContentLoaded', function() {
         const outcome = document.querySelector('.outcome');
         if (outcome.textContent === 'Waiting') {
-            outcome.style.border = '0.3vmin solid yellow';
-            // outcome.style.backgroundColor = 'yellow';
+            outcome.style.border = '0.5vmin solid yellow';
         } else if (outcome.textContent === 'Rejected') {
-            // outcome.style.backgroundColor = 'red';
+            outcome.style.border = '0.5vmin solid red';
         } else if (outcome.textContent === 'Success') {
-            // outcome.style.backgroundColor = 'green';
+            outcome.style.border = '0.5vmin solid green';
         }
     });
     document.addEventListener("DOMContentLoaded", function() {
@@ -65,7 +65,8 @@
         const starRatings = Array.from(document.querySelectorAll('.hiddenRating'));
         starRatings.forEach(function(starRating, idx) {
             const starRatingContent = starRating.textContent;
-            const starRatingAsNum = parseInt(starRatingContent);            for (let s = 0; s < starRatingAsNum; s++) {
+            const starRatingAsNum = parseInt(starRatingContent);            
+            for (let s = 0; s < starRatingAsNum; s++) {
                 stars[idx * 5 + s].style.color = 'yellow';
             }
         });

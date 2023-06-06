@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
-    <title>Job Seekers</title>
+    <title>JobSeekrs</title>
 </head>
 <body>
 <main class="home-main">
@@ -53,15 +53,20 @@
 </main>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        let colour1; 
+        let colour2;
+        let colour3;
         setInterval(function() {
             const cubes = Array.from(document.querySelectorAll('.colour-change > a'));
+            const bigCube = document.querySelector('.colour-change');
             cubes.forEach(function(c) {
-                const colour1 = String(Math.floor(Math.random() * 156 + 100));
-                const colour2 = String(Math.floor(Math.random() * 101));
-                const colour3 = String(Math.floor(Math.random() * 156 + 100));
+                colour1 = String(Math.floor(Math.random() * 156 + 100));
+                colour2 = String(Math.floor(Math.random() * 101));
+                colour3 = String(Math.floor(Math.random() * 156 + 100));
                 console.log(colour1, colour2, colour3)
                 c.style.backgroundColor = 'rgb(' + colour1 + ', ' + colour2 + ', ' + colour3 + ')';
             })
+            // bigCube.style.boxShadow = '0 0 7vmin 0.4vmin rgb(' + colour1 + ', ' + colour2 + ', ' + colour3 + ')';
         }, 1000)
     })
 </script>

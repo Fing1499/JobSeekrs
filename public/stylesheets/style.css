@@ -35,7 +35,7 @@ body {
 
 .home-main {
   display: grid;
-  background: linear-gradient(90deg, rgba(0,0,0,1) 60%, rgba(255,0,249,1) 100%);
+  background: linear-gradient(90deg, #42047e 60%, rgba(255,0,249,1) 100%);
   grid-template-columns: 1fr;
   grid-template-rows: 3fr repeat(2, 2fr);
   grid-column-gap: 0px;

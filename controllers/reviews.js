@@ -12,10 +12,14 @@ async function showCompanyReviews(req, res, next) {
         const { companyName } = req.params;
         //! change to find one is problem arises with this 
         const company = await Application.find({ companyName: companyName });
+        // console.log(req.params);
+        // console.log(`COMPANY: ${company}`)
+        // console.log(`COMPANYNAME: ${companyName}`);
+        // console.log(company.companyName);
         res.render('reviews/show', { title: `${companyName} Reviews`, company });
     } catch (err) {
         console.log(err);
-        res.send('test');
+        res.send('test')// { errorMsg: err.message });
         next();
     }
 }
@@ -25,8 +29,12 @@ async function addReview(req, res, next) {
     const { id } = req.params;
     const application = await Application.findById(id);
     try {
+        // console.log(id);
         const { review } = req.body;
         const { rating } = req.body;
+        // console.log(rating);
+        // console.log(review)
+        // console.log(application);
         application.reviews.push(req.body);
         await application.save();
     } catch (err) {
@@ -40,11 +48,13 @@ async function addReview(req, res, next) {
 async function showNewReviewPage(req, res, next) {
     try {
         const { id } = req.params;
+        console.log(id)
         const application = await Application.findById(id);
+        console.log(application)
         res.render('reviews/new', { title: `Add Review on`, application })
     } catch (err) {
         console.log(err);
-        res.send('test');
+        res.send('test')// { errorMsg: err.message });
         next();
     }
 }
@@ -55,7 +65,7 @@ async function showNewReviewPage(req, res, next) {
         res.render('reviews/index', { title: 'Reviews', application });
     } catch (err) {
         console.log(err);
-        res.send('test');
+        res.send('test')// { errorMsg: err.message });
         next();
     }
 

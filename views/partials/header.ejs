@@ -15,9 +15,9 @@
 </head>
 <body>
 <nav class="normal-header">
-    <a href="/applications">DASHBOARD</a>
+    <a href="/applications" <%- title === 'Dashboard' ? 'class="active"' : '' %>>DASHBOARD</a>
     <% if (user) { %>
-      <a href="/reviews">REVIEWS</a>
+      <a href="/reviews" <%- title === 'Reviews' ? 'class="active"' : '' %>>REVIEWS</a>
       <a href="/logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;</a>

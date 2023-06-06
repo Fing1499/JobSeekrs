@@ -413,18 +413,24 @@ li {
     color: white;
     box-shadow: 0px 4px 4px black;
     height: 3.5vmin;
+    width: 90vw;
+    margin-left: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 4;
+    border-radius: 2vmin 2vmin 0 0;
   }
 
   .details-reviews {
-    background-color: #8B5191;
-    height: 100vh;
+    background-color:#42047E;
+    height: 36.5vh;
+    width: 90vw;
+    margin-left: 5vw;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
     margin-top: -2vmin;
     position: relative;
     z-index: 1;
@@ -449,7 +455,7 @@ li {
     margin-left: 3vmin;
     margin-right: 3vmin;
     border-radius: 20px;
-    background-color: #8B5191;
+    background-color: #42047E;
     border: 0.4vmin solid #07f49e;
     color: white;
     box-shadow: 0px 5px 4px rgb(0, 0, 0);
